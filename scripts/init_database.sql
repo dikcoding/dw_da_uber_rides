@@ -16,19 +16,19 @@ WARNING:
 USE master;
 GO
 
--- Drop and recreate the 'DataWarehouse' database
-IF EXISTS (SELECT 1 FROM sys.databases WHERE name = 'DataWarehouse')
+-- Drop and recreate the 'DW_Financial' database
+IF EXISTS (SELECT 1 FROM sys.databases WHERE name = 'DW_Financial')
 BEGIN
-    ALTER DATABASE DataWarehouse SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-    DROP DATABASE DataWarehouse;
+    ALTER DATABASE DW_Financial SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE DW_Financial;
 END;
 GO
 
--- Create the 'DataWarehouse' database
-CREATE DATABASE DataWarehouse;
+-- Create the 'DW_Financial' database
+CREATE DATABASE DW_Financial;
 GO
 
-USE DataWarehouse;
+USE DW_Financial;
 GO
 
 -- Create Schemas
