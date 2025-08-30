@@ -1,71 +1,111 @@
-# 📊 IDX Financial Workflow
+📊 Uber Ride Analytics Workflow
 
-This repository contains **Data Analyst (DA)** and **Data Engineering (DE)** workflows based on the [Financial Statement Data IDX 2020–2023](https://www.kaggle.com/datasets/kalkulasi/financial-statement-data-idx-2020-2023/data) dataset from Kaggle.  
-The dataset includes annual financial statements of **604 public companies** listed on the Indonesia Stock Exchange (IDX).
+This repository contains Data Analyst (DA) and Data Engineering (DE) workflows based on the Uber Ride Bookings
+ dataset from Kaggle.
+The dataset includes detailed ride transaction records such as booking ID, ride status, pickup & drop locations, vehicle type, and timestamps from the Uber platform.
 
----
+🔹 Analyzing Requirements
+📂 Data Source
 
-## 🔹 Analyzing Requirements
+Dataset from Kaggle: Uber Ride Bookings.
 
-### 📂 Data Source
-- Dataset from Kaggle: *Financial Statement Data IDX 2020–2023*.  
-- Covers annual reports of 604 public companies listed on IDX.  
-- Primary source: official financial reports published via IDX.  
+Covers daily and weekly ride transactions.
 
-### 📊 Data Quality
-- **Completeness**: Not all companies are included; some did not publish or have irrelevant reports.  
-- **Consistency**: Standardized account names (Balance Sheet, Income Statement, Cash Flow), but unit validation (million/billion Rupiah) is required.  
-- **Missing Values**: Some variables or periods are empty, requiring imputation/cleaning.  
-- **Accuracy**: Dataset follows official reports, but verification is recommended for financial decisions.  
+Primary source: Uber ride-hailing platform data.
 
-### 🔗 Integration
-- IDX stock price data → link financial performance with market movement.  
-- Industry sector data → comparison across industries.  
-- External macroeconomic data (inflation, interest rate, exchange rate) → assess impact of economy.  
-- CSV format → compatible with Python, R, SQL, BI tools (Tableau, Power BI).  
+📊 Data Quality
 
-### 🗂️ Scope
-- **Period**: 2020–2023.  
-- **Coverage**: 604 public companies.  
-- **Statements**:  
-  - Balance Sheet (BS): assets, liabilities, equity.  
-  - Income Statement (IS): revenue, expenses, profit/loss.  
-  - Cash Flow (CF): operating, investing, financing cash flow.  
-- **Possible Analysis**:  
-  - Growth trends.  
-  - Financial ratios (ROA, ROE, DER, EBITDA margin, etc.).  
-  - Benchmarking across companies/sectors.  
-  - Classification & clustering of companies based on performance.  
+Completeness: Some rides have incomplete info (e.g., missing drop-off, cancelled rides).
 
-### 📖 Documentation
-- Dataset includes descriptions of accounts (BS, IS, CF) in English & Bahasa Indonesia.  
-- Appendix table explains each account → easier mapping & analysis.  
-- Additional docs:  
-  - Data dictionary (column definitions & units).  
-  - Data cleaning & transformation guide.  
-  - Limitations (missing companies, inconsistencies across years).  
+Consistency: Standardized booking status (Completed, Cancelled by Driver, Cancelled by Customer, etc.), but requires validation.
 
----
+Missing Values: Certain columns (e.g., Avg VTAT, Avg CTAT) may contain nulls.
 
-## ⚙️ Project Workflow
+Accuracy: Dataset represents Uber transactions but may not fully reflect global data.
 
-### 🛠 Data Engineering (DE)
-- Data extraction from Kaggle.  
-- Cleaning & transformation (handling missing values, unit standardization).  
-- Building pipelines for integration with external datasets.  
-- Preparing structured data for analytics/BI tools.  
+🔗 Integration
 
-### 📈 Data Analysis (DA)
-- Exploratory Data Analysis (EDA).  
-- Trend & ratio analysis.  
-- Benchmarking between sectors.  
-- Visualizations & dashboards.  
-- Generating insights for business/finance decision-making.  
+External weather data → analyze impact of weather on ride demand.
 
----
+Traffic/road condition data → link trip delays with congestion.
 
-## 🚀 Tech Stack
-- **Database**: SQL Server  
-- **Languages**: SQL (T-SQL)
-- **Tools**: Tableau
-- **Version Control**: Git & GitHub  
+Economic data (fuel prices, inflation) → analyze effect on ride demand & cancellations.
+
+CSV format → compatible with Python, R, SQL, BI tools (Tableau, Power BI).
+
+🗂️ Scope
+
+Period: 2024–2025 (daily & weekly ride data).
+
+Coverage: Ride-hailing transactions (Completed, Cancelled, Incomplete).
+
+Columns:
+
+Date & Time of booking.
+
+Booking ID & Customer ID.
+
+Booking status (Completed, Cancelled, etc.).
+
+Vehicle type (Auto, Go Mini, Go Sedan, eBike, UberXL, etc.).
+
+Pickup & Drop locations.
+
+Avg VTAT (Vehicle Time at Arrival) & Avg CTAT (Customer Time at Arrival).
+
+Possible Analysis:
+
+Ride demand trends over time.
+
+Cancellation patterns (by driver, customer, no driver found).
+
+Popular pickup & drop-off locations (heatmaps).
+
+Vehicle type utilization.
+
+Customer behavior & retention metrics.
+
+📖 Documentation
+
+Dataset includes ride booking details (transactions & status codes).
+
+Additional docs:
+
+Data dictionary (column definitions).
+
+Data cleaning & transformation guide.
+
+Limitations (missing rides, sampling bias, regional coverage).
+
+⚙️ Project Workflow
+🛠 Data Engineering (DE)
+
+Data extraction from Kaggle.
+
+Cleaning & transformation (handling nulls, standardizing status codes).
+
+Building pipelines for integration with external datasets (weather, traffic).
+
+Preparing structured data for analytics/BI tools.
+
+📈 Data Analysis (DA)
+
+Exploratory Data Analysis (EDA).
+
+Trend & demand analysis.
+
+Cancellation & utilization analysis.
+
+Customer segmentation & retention study.
+
+Visualizations & dashboards for ride demand & performance insights.
+
+🚀 Tech Stack
+
+Database: SQL Server
+
+Languages: SQL (T-SQL), Python (for EDA & visualization)
+
+Tools: Tableau / Power BI
+
+Version Control: Git & GitHub
