@@ -1,5 +1,5 @@
 /*===============================================================================
-  File   : ddl_silver.sql
+  File   : ddl_silver_uber.sql
   Purpose: Create Silver Layer table for Uber Booking Data
 ===============================================================================
 
@@ -33,28 +33,27 @@ IF OBJECT_ID('silver.uber_booking_clean', 'U') IS NOT NULL
     DROP TABLE silver.uber_booking_clean;
 GO
 
+-- Buat Silver Table dengan numeric column
 CREATE TABLE silver.uber_booking_clean (
-    [date] VARCHAR(50) NULL,
-    [time] VARCHAR(50) NULL,
-    booking_id VARCHAR(50) NULL,
-    booking_status VARCHAR(100) NULL,
-    customer_id VARCHAR(50) NULL,
-    vehicle_type VARCHAR(50) NULL,
-    pickup_location VARCHAR(255) NULL,
-    drop_location VARCHAR(255) NULL,
-    avg_vtat VARCHAR(50) NULL,
-    avg_ctat VARCHAR(50) NULL,
-    cancelled_by_customer VARCHAR(10) NULL,
+    booking_id                  VARCHAR(50)   NOT NULL,
+    booking_datetime            DATETIME      NOT NULL,
+    booking_status              VARCHAR(100)  NULL,
+    vehicle_type                VARCHAR(50)   NULL,
+    pickup_location             VARCHAR(255)  NULL,
+    drop_location               VARCHAR(255)  NULL,
+    booking_value               DECIMAL(18,2) NULL,
+    ride_distance               DECIMAL(18,2) NULL,
+    cancelled_by_customer       BIT           NULL,
     cancellation_reason_customer VARCHAR(255) NULL,
-    cancelled_by_driver VARCHAR(10) NULL,
-    cancellation_reason_driver VARCHAR(255) NULL,
-    incomplete_ride_flag VARCHAR(10) NULL,
-    incomplete_ride_reason VARCHAR(255) NULL,
-    booking_value VARCHAR(50) NULL,
-    ride_distance VARCHAR(50) NULL,
-    driver_rating VARCHAR(50) NULL,
-    customer_rating VARCHAR(50) NULL,
-    payment_method VARCHAR(100) NULL,
-    dwh_create_date DATETIME2 DEFAULT GETDATE()
+    cancelled_by_driver         BIT           NULL,
+    cancellation_reason_driver  VARCHAR(255) NULL,
+    incomplete_ride_flag        BIT           NULL,
+    incomplete_ride_reason      VARCHAR(255) NULL,
+    driver_rating               DECIMAL(5,2)  NULL,
+    customer_rating             DECIMAL(5,2)  NULL,
+    payment_method              VARCHAR(100)  NULL,
+    avg_vtat                    DECIMAL(18,2) NULL,   
+    avg_ctat                    DECIMAL(18,2) NULL,   
+    dwh_create_date             DATETIME      NOT NULL
 );
 GO
