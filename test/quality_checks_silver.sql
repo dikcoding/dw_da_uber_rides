@@ -1,7 +1,6 @@
 /*=================================================================================
   File   : quality_check_silver.sql
   Purpose: Validate Data Quality in Silver Layer
-  Author : Andika
 ==================================================================================*/
 
 -- 1. Check for Unwanted Spaces
