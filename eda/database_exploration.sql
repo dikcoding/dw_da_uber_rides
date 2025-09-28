@@ -15,7 +15,7 @@ Usage:
 */
 
 -- =============================================================================
--- Show all schemas and tables
+-- Show all schemas and tables.
 -- =============================================================================
 SELECT * FROM INFORMATION_SCHEMA.TABLES
 
